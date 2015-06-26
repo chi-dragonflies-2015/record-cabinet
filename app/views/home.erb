@@ -1,0 +1,11 @@
+<form class="pure-form container" action="/login" method="post">
+    <fieldset>
+        <legend><h1>Record Cabinet</h1></legend>
+
+        <input name="username" type="text" placeholder="Username">
+        <input name="password" type="password" placeholder="Password">
+        <p style="color:red"> <%=@invalid_user%></p>
+        <button type="submit" class="pure-button pure-button-primary">Sign in</button>
+        <a href="/users/new">Sign Up!</a>
+    </fieldset>
+</form>

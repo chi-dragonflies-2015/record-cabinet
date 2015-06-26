@@ -1,0 +1,31 @@
+.container{
+  margin: 5%;
+}
+
+.record-box{
+  position: relative;
+  float: left;
+  margin: 1%;
+  padding: 3%;
+  height: 25%;
+  width: 25%;
+}
+
+.photo-div{
+  position: relative;
+  max-height: 100%;
+  max-width: 100%;
+}
+
+.photo{
+  max-height: 100%;
+  max-width: 100%;
+}
+
+h2 {
+   position: absolute;
+   top: 60%;
+   left: 10px;
+   width: 100%;
+   color: white;
+}

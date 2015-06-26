@@ -14,6 +14,8 @@ require 'pathname'
 require 'pg'
 require 'active_record'
 require 'logger'
+require 'bcrypt'
+require 'rspotify'
 
 require 'sinatra'
 require "sinatra/reloader" if development?
