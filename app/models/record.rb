@@ -7,6 +7,10 @@ class Record < ActiveRecord::Base
     RSpotify::Album.search(album)
   end
 
+  def self.search_albums_by_id(id)
+    RSpotify::Album.find(id)
+  end
+
   def self.artist_name
     self.search_albums(album).artists.first.name
   end

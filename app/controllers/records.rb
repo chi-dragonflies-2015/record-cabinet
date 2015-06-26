@@ -1,9 +1,5 @@
 get '/search' do
   @user = User.find_by(id: session[:id])
-    puts "$$$$$$$$$$$$$$$$$$$$$$$$$$$$"
-        puts session[:id]
-        puts @user.id
-    puts "$$$$$$$$$$$$$$$$$$$$$$$$$$$$"
   erb :'/records/search'
 end
 
@@ -19,14 +15,17 @@ end
 
 
 
-# post '/albums' do
-#   @album = Record.search_albums(params[:album])
-#   @artist_name = Record.artist_name
-#   @release_date = Record.release_date
-#   @image = Record.image
-#   if request.xhr?
+post '/list' do
+  album = Record.search_albums_by_id(params[:spotify_id])
+  name = album.name
+  artist = album.artists.first.name
+  release = album.release_date
+  image = images.first
+  url = image['url']
+  new_record = Record.new(name: name, artist: artist, spotify_id: params[:spotify_id], :image_url: url)
+  if request.xhr?
 
-#   else
+  else
 
-#   end
-# end
+  end
+end

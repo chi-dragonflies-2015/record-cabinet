@@ -8,15 +8,18 @@ $(document).ready(function() {
                         data: album
     });
     request.done(function(response){
-      console.log(response);
       $('.album-list').html(response);
     });
   });
-  // $('#select-button').on('click', function(event){
-  //   event.preventDefault();
-  //   var request = $.ajax({
-  //                       url: '/list',
-  //                       type: 'post'
-  //   })
-  // });
+  $('.album-list').on('submit', '#add-album', function(event){
+    event.preventDefault();
+    var albumId = $('#album-id').val();
+    // console.log(albumId);
+    var request = $.ajax({
+                        url: '/list',
+                        type: 'post',
+                        data: albumId
+    });
+
+  });
 });
