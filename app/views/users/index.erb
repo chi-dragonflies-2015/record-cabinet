@@ -5,13 +5,15 @@
         <a href="/logout"><button class="pure-button left-margin">Logout</button></a>
     </ul>
 </div>
-<div class="container">
-  <div class="record-box">
-    <div class="photo-div">
-        <a href=""><img class="photo" src="https://i.scdn.co/image/599a81047ccba26ecd26941359513f2fea73d876" alt="" /></a>
-        <h2 id="album-photo-name">Gardens and Villa</br></h2>
+<div class="record-list container">
+  <%@records.each do |record| %>
+    <div class="record-box">
+      <div class="photo-div">
+          <a href=""><img class="photo" src="<%=record.image_url%>" alt="" /></a>
+          <h2 id="album-photo-name"><%=record.artist%></br><%=record.name%></h2>
+      </div>
     </div>
-  </div>
+  <%end%>
 </div>
 
 

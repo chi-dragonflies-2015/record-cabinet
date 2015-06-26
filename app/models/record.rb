@@ -8,7 +8,7 @@ class Record < ActiveRecord::Base
   end
 
   def self.search_albums_by_id(id)
-    RSpotify::Album.find(id)
+
   end
 
   def self.artist_name

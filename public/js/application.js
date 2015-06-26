@@ -14,12 +14,14 @@ $(document).ready(function() {
   $('.album-list').on('submit', '#add-album', function(event){
     event.preventDefault();
     var albumId = $('#album-id').val();
-    // console.log(albumId);
     var request = $.ajax({
-                        url: '/list',
+                        url: '/albums',
                         type: 'post',
-                        data: albumId
+                        data: { id: albumId }
     });
-
+    request.done(function(response){
+      console.log(response);
+      $('.album-list').html(response.name + " has been added to your list!");
+    });
   });
 });

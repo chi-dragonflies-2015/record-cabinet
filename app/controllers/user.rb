@@ -15,5 +15,6 @@ end
 
 get '/users/:id' do
   @user = User.find_by(id: session[:id])
+  @records = Record.all
   erb :'/users/index'
 end
