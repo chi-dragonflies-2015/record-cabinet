@@ -1,4 +1,9 @@
 get '/search' do
+  @user = User.find_by(id: session[:id])
+    puts "$$$$$$$$$$$$$$$$$$$$$$$$$$$$"
+        puts session[:id]
+        puts @user.id
+    puts "$$$$$$$$$$$$$$$$$$$$$$$$$$$$"
   erb :'/records/search'
 end
 
@@ -6,11 +11,7 @@ end
 post '/search' do
     @albums = Record.search_albums(params[:album])
     if request.xhr?
-      puts "$$$$$$$$$$$$$$$$$$$$$$$$$$$$"
-      puts @albums.first.name
-      puts @albums.first.release_date
-      puts "$$$$$$$$$$$$$$$$$$$$$$$$$$$$"
-      # erb :'/records/_results', :locals => { albums: @albums }
+      erb :'/records/_results', :locals => { albums: @albums }, layout: false
     else
       erb :'/records/search'
     end

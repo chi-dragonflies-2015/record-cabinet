@@ -1,12 +1,19 @@
 <div class="container">
   <ul>
-    <%albums.each do |album|%>
+    <% albums.each do |album|%>
     <li>
-      <h2><%=album.artists.first.artists.first.name%></h2></br>
-      <h3><%=album.artists.first.release_date%></h3></br>
+      <h3>
+      Album Name: <%=album.name %></br>
+      Artist: <%=album.artists.first.name%></br>
+      Release Date: <%=album.release_date%></h3></br>
+      <%tracks = album.tracks.map {|track| track.name} %>
+      Tracks: <% tracks.each do |track| %>
+                <li> <%=track%> </li>
+              <%end %></br>
       <form class="pure-form" action="/list" method="post">
-        <input id="select-button" type="submit" value="select this album">
+        <input class="pure-button" type="submit" value="select this album">
       </form>
-    </li>
+    </li></br>
+    <% end %>
   </ul>
 </div>

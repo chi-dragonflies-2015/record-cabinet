@@ -9,3 +9,7 @@
         <a href="/users/new">Sign Up!</a>
     </fieldset>
 </form>
+
+<% if session[:id] != nil %>
+  <p>Session_id is <%= session[:id] %></p>
+<% end %>

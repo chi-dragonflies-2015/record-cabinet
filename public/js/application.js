@@ -1,5 +1,5 @@
 $(document).ready(function() {
-  $('#album-search').on('submit', function(event){
+  $('.album-search').on('submit', function(event){
     event.preventDefault();
     var album = $(this).serialize();
     var request = $.ajax({
@@ -9,7 +9,7 @@ $(document).ready(function() {
     });
     request.done(function(response){
       console.log(response);
-      // $('.search-page').append(response);
+      $('.album-list').html(response);
     });
   });
   // $('#select-button').on('click', function(event){

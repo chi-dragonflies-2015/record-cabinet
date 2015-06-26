@@ -8,19 +8,20 @@ class Record < ActiveRecord::Base
   end
 
   def self.artist_name
-    self.search_albums(album)
-    artists.first.artists.first.name
+    self.search_albums(album).artists.first.name
   end
 
   def self.release_date
-    self.search_albums(album)
-    artists.first.release_date
+    self.search_albums(album).release_date
   end
 
   def self.image
-    self.search_albums(album)
-    image = artists.first.images.first
+    image = self.search_albums(album).images.first
     image['url']
+  end
+
+  def self.track_list
+    track = search_albums(album).tracks.map {|track| track.name}
   end
 
 end
